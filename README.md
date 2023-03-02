@@ -1,43 +1,69 @@
 # cli-chat
 
-cli-chat is a command-line tool that allows you to have a conversation with ChatGPT from your terminal.
+`cli-chat` is a command-line tool that allows you to have a conversation with ChatGPT from your terminal.
+Follow the simple steps below to install and use this tool.
 
 ## Installation
 
+You can easily install `cli-chat` by typing the following command in your terminal:
+
 ```bash
-# pip install cli-chat
+pip install cli-chat
 ```
 
-Or, if you don't want to install:
+Alternatively, you can clone the repository and install the dependencies using `poetry`. Follow the steps below:
 
 1. Clone the repository.
-2. Run `poetry install` to install the dependencies.
+2. Run `poetry install`.
 
 ## Usage
 
-To start a conversation, run the following command in your terminal:
+To start a conversation, simply type the following command in your terminal:
+
 ```bash
-# cli-chat
-```
-or
-```bash
-# poetry run cli-chat
+cli-chat
 ```
 
+Alternatively, start the script using `poetry` by typing the following command in your terminal:
 
-### Notes:
+```bash
+poetry run cli-chat
+```
 
-1. You will need a valid API key from [here](https://platform.openai.com/account/api-keys) to use the tool.
-2. The key will be stored in a file named `.key` in current directory. If you want to change the key or 
-3. stop using the script, simply remove this file.
-4. You can use the arrow keys to navigate through the history of your conversation.
-5. To end the conversation, simply type "thanks", "thx", or something similar.
-6. If you don't want to render the answer as markdown in the terminal, put `[nm]` in front of your question. 
-For example, if you want to ask "How are you?" without rendering the answer as markdown, you would type `[nm]How are you?` instead.
-7. Auth suggestions and common key-bindings should also work, thanks to [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit).
+Here are a few things to keep in mind when using `cli-chat`:
+
+* Before using the tool, you must obtain an API key from [here](https://platform.openai.com/account/api-keys).
+* The API key will be saved in a file named `.key` in your current directory. To change the key or stop using the tool,
+  simply delete this file.
+* You can use arrow keys to navigate through your conversation history.
+* To end the conversation, type "thanks", "thx", or a similar phrase.
+* Common key-bindings and auto-suggestions are supported, thanks
+  to [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit).
+
+### Control Sequences
+
+You can use special control sequences to modify the behavior of the tool. A sequence is always placed at the beginning
+of your question string and starts with a backslash `\`.
+
+The following control sequences are available:
+
+| Sequence        | Description                                                                                                                                   |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `\no-render`    | Do not render the answer's markdown.                                                                                                          |
+| `\load-file`    | Load a file and use its contents as the remaining of the question.                                                                            |
+| `\long`         | Accept multi-line inputs starting from now on. Use <kbd>Meta</kbd>+<kbd>Enter</kbd> or <kbd>ESC</kbd> followed by <kbd>Enter</kbd> to finish. |
+| `\save`         | Save the last answer to a file.                                                                                                               |
+| `\hide-answer`  | Do not show the answer. **Danger: If you want to save the answer later, always check it.**"                                                   |
+
+You can use multiple control sequences at once by separating them with commas. For example, `\no-render,load-file` will
+load a file and not render its contents as markdown.
 
 ## Example
 
-![Example](docs/example-1.png)
+Here are a couple of examples of what a conversation with `cli-chat` might look like:
 
-![Example](./docs/example-2.png)
+![Example 1](./docs/example-1.png)
+
+![Example 2](./docs/example-2.png)
+
+![Example 3](./docs/example-3.png)
