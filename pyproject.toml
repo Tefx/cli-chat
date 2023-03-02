@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "cli-chat"
+version = "0.1.0"
+description = ""
+authors = ["Zhu Zhaomeng <zhaomeng.zhu@ntu.edu.sg>"]
+license = "GPLv3"
+readme = "README.md"
+packages = [{include = "cli_chat"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^0.27.0"
+prompt-toolkit = "^3.0.38"
+rich = "^13.3.1"
+
+[tool.poetry.group.dev.dependencies]
+black = {extras = ["d"], version = "^23.1.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+cli-chat = "cli_chat:main"
