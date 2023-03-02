@@ -68,7 +68,7 @@ def main():
                                history=history,
                                auto_suggest=auto_suggest,
                                style=style)
-            with open(file_path) as f:
+            with Path(file_path.strip()).open() as f:
                 question += f.read()
 
         if "save" in control_cmds:
@@ -79,9 +79,9 @@ def main():
                                history=history,
                                auto_suggest=auto_suggest,
                                style=style)
-            with open(file_path, "w") as f:
+            with Path(file_path.strip()).open("w") as f:
                 f.write(completion["choices"][0]["message"]["content"])
-            console.print(f"Last response saved to {file_path}")
+            console.print(f"Last answer saved to {file_path}")
             if question.strip() == "":
                 continue
 
