@@ -1,30 +1,29 @@
-# cli-chat
+## `cli-chat`
 
-`cli-chat` is a command-line tool that allows you to have a conversation with ChatGPT from your terminal.
-Follow the simple steps below to install and use this tool.
+`cli-chat` is a command-line tool that allows you to have a conversation with ChatGPT from your terminal. Follow the simple steps below to install and use this tool.
 
-## Installation
+### Installation
 
-You can easily install `cli-chat` by typing the following command in your terminal:
+To install `cli-chat`, simply execute the following command in your terminal:
 
 ```bash
 pip install cli-chat
 ```
 
-Alternatively, you can clone the repository and install the dependencies using `poetry`. Follow the steps below:
+Alternatively, you can clone the repository and install the dependencies using `poetry`. Here are the steps to follow:
 
 1. Clone the repository.
-2. Run `poetry install`.
+2. Execute `poetry install`.
 
-## Usage
+### Usage
 
-To start a conversation, simply type the following command in your terminal:
+To start a conversation with ChatGPT, execute the following command in your terminal:
 
 ```bash
 cli-chat
 ```
 
-Alternatively, start the script using `poetry` by typing the following command in your terminal:
+Alternatively, you can start the script by executing the following command in your terminal:
 
 ```bash
 poetry run cli-chat
@@ -32,41 +31,38 @@ poetry run cli-chat
 
 Here are a few things to keep in mind when using `cli-chat`:
 
-* Before using the tool, you must obtain an API key from [here](https://platform.openai.com/account/api-keys).
-* The API key will be saved in a file named `.key` in your current directory. To change the key or stop using the tool,
-  simply delete this file.
-* You can use arrow keys to navigate through your conversation history.
-* To end the conversation, type "thanks", "thx", or a similar phrase.
-* Common key-bindings and auto-suggestions are supported, thanks
-  to [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit).
+- Before being able to use the tool, you must obtain an API key by registering for it [here](https://platform.openai.com/account/api-keys).
+- The API key will be recorded in a file called `.key` in your current directory. If you want to stop using the tool or change the key, just delete this file.
+- You can navigate through your conversation history with the arrow keys.
+- To end the conversation, type "thanks", "thx", or a similar phrase.
+- Common key-bindings and auto-suggestions are supported, thanks to [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit).
 
-### Control Sequences
+### Control Commands
 
-You can use special control sequences to modify the behavior of the tool. A sequence is always placed at the beginning
-of your question string and starts with a backslash `\`.
+You can use special control commands to modify `cli-chat`'s behavior. These commands should be placed at the beginning of your question string and should start with a backslash `\\`.
 
-The following control sequences are available:
+The supported control commands are listed below:
 
-| Sequence        | Description                                                                                                                                   |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| `\no-render`    | Do not render the answer's markdown.                                                                                                          |
-| `\load-file`    | Load a file and use its contents as the remaining of the question.                                                                            |
-| `\long`         | Accept multi-line inputs starting from now on. Use <kbd>Meta</kbd>+<kbd>Enter</kbd> or <kbd>ESC</kbd> followed by <kbd>Enter</kbd> to finish. |
-| `\save`         | Save the last answer to a file.                                                                                                               |
-| `\hide-answer`  | Do not show the answer. **Danger: If you want to save the answer later, always check it.**"                                                   |
+| Command       | Arguments | Tags             | Description                                                                                                                                                     |
+|---------------|-----------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `\no-render`  |           |                 | Prevent the answer from being rendered in markdown.                                                                                                             |
+| `\load-file`  |           |                 | Load a file and use the contents as the remaining part of your question.                                                                                         |
+| `\long`       |           |                 | Accept multi-line inputs from now on. Use <kbd>Meta</kbd>+<kbd>Enter</kbd> or <kbd>ESC</kbd> followed by <kbd>Enter</kbd> to finish.                            |
+| `\save`       |           | `append`        | Save the last answer to a file.                                                                                                                                 |
+| `\hide-answer`|           |                 | Do not show the answer. **WARNING: Always check the answer first to avoid losing it if you want to save it later.**                                           |
+| `\continue`   | `idx`     |                 | Resume the conversation from a previous answer. `idx` should be a negative number as shown by the `\history` command.                                          |
+| `\forget`     |           |                 | Delete your conversation history.                                                                                                                               |
+| `\history`    |           |                 | Show your entire conversation history.                                                                                                                          |
+| `\list-files` |           |                 | List all files in the current directory.                                                                                                                        |
+| `\cat`        | `filename`|                 | Show the contents of a file.                                                                                                                                     |
 
-You can use multiple control sequences at once by separating them with commas. For example, `\no-render,load-file` will
-load a file and not render its contents as markdown.
+You can combine multiple control commands by separating them with `|`. For instance, `\no-render|load-file` will load a file and prevent the answer from being rendered in markdown.
 
-### Todos
+For some commands, additional arguments and tags may be specified by using the syntax `command(arg1, arg2, ...){tag1, tag2, ..}`. For example, `\save{append}` will append the answer to the file instead of overwriting it, while `\continue(-1)` will resume the conversation from the answer with index `-1` in the history.
 
-1. allow paramneters for control sequences.
-2. \continue[-n] to continue a previous message instead of the last.
-3. \forget, \forget-now to forget context, for switching topic.
+### Example
 
-## Example
-
-Here are a couple of examples of what a conversation with `cli-chat` might look like:
+Here are a few examples of what a conversation with `cli-chat` might look like:
 
 ![Example 1](./docs/example-1.png)
 
