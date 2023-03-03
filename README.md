@@ -46,9 +46,8 @@ poetry run cli-chat
 Here are a few things to keep in mind when using `cli-chat`:
 
 - Before being able to use the tool, you must obtain an API key by registering for it [here](https://platform.openai.com/account/api-keys).
-- The API key will be recorded in a file called `.key` in your current directory. If you want to stop using the tool or change the key, just delete this file.
-- You can navigate through your conversation history with the arrow keys.
 - To end the conversation, type "thanks", "thx", or a similar phrase.
+- You can navigate through your conversation history with the arrow keys.
 - Common key-bindings and auto-suggestions are supported, thanks to [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit).
 
 ### Control Commands
@@ -83,3 +82,7 @@ Here are a few examples of what a conversation with `cli-chat` might look like:
 ![Example 3](./docs/example-3.png)
 
 ![Example 4](./docs/example-4.png)
+
+## Configuration
+
+Use `cli-chat-config` to manage key and input history.

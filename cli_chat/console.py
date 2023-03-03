@@ -10,10 +10,10 @@ from rich.markdown import Markdown
 
 
 class Console:
-    def __init__(self, history_file=".history"):
-        os.makedirs(history_file, exist_ok=True)
-        self.prompt_history = FileHistory(os.path.join(history_file, "question"))
-        self.prompt_file_history = FileHistory(os.path.join(history_file, "file"))
+    def __init__(self, history_dir=".history"):
+        os.makedirs(history_dir, exist_ok=True)
+        self.prompt_history = FileHistory(os.path.join(history_dir, "question"))
+        self.prompt_file_history = FileHistory(os.path.join(history_dir, "file"))
         self.prompt_auto_suggest = AutoSuggestFromHistory()
         self.prompt_style = Style.from_dict({"prompt": "#7fff00 bold", "": "#ADD8E6"})
         self._console = RawConsole()
@@ -66,6 +66,15 @@ class Console:
                 auto_suggest=self.prompt_auto_suggest,
                 style=self.prompt_style,
             )
+
+    def prompt(self, text, is_password=False):
+        return prompt(
+            text,
+            is_password=is_password,
+            history=self.prompt_history if not is_password else None,
+            auto_suggest=self.prompt_auto_suggest,
+            style=self.prompt_style,
+        )
 
     def gap(self):
         self._console.print("")

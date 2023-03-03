@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cli-chat"
-version = "0.2.0"
+version = "0.2.1"
 description = ""
 authors = ["Zhu Zhaomeng <zhaomeng.zhu@ntu.edu.sg>"]
 license = "GPLv3"
@@ -12,6 +12,8 @@ python = "^3.11"
 openai = "^0.27.0"
 prompt-toolkit = "^3.0.38"
 rich = "^13.3.1"
+appdirs = "^1.4.4"
+typer = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
 black = {extras = ["d"], version = "^23.1.0"}
@@ -22,4 +24,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-cli-chat = "cli_chat.app:main"
+cli-chat = "cli_chat.app:app"
+cli-chat-config = "cli_chat.app:config_app"
