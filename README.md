@@ -4,7 +4,19 @@
 
 ### Installation
 
-To install `cli-chat`, simply execute the following command in your terminal:
+#### Mac
+
+`cli-chat` can be installed on Mac using [Homebrew](https://brew.sh/). To install `cli-chat` using Homebrew, 
+simply execute the following command in your terminal:
+
+```bash
+brew tap tefx/tap
+brew install cli-chat
+```
+
+#### Other Platforms
+
+To install `cli-chat`, execute the following command in your terminal:
 
 ```bash
 pip install cli-chat
@@ -12,8 +24,10 @@ pip install cli-chat
 
 Alternatively, you can clone the repository and install the dependencies using `poetry`. Here are the steps to follow:
 
-1. Clone the repository.
-2. Execute `poetry install`.
+1. Install [poetry](https://python-poetry.org/docs/#installation).
+2. Clone the repository.
+3. Navigate to the repository's root directory.
+4. Execute `poetry install`.
 
 ### Usage
 
@@ -53,8 +67,6 @@ The supported control commands are listed below:
 | `\continue`   | `idx`     |                 | Resume the conversation from a previous answer. `idx` should be a negative number as shown by the `\history` command.                                          |
 | `\forget`     |           |                 | Delete your conversation history.                                                                                                                               |
 | `\history`    |           |                 | Show your entire conversation history.                                                                                                                          |
-| `\list-files` |           |                 | List all files in the current directory.                                                                                                                        |
-| `\cat`        | `filename`|                 | Show the contents of a file.                                                                                                                                     |
 
 You can combine multiple control commands by separating them with `|`. For instance, `\no-render|load-file` will load a file and prevent the answer from being rendered in markdown.
 
