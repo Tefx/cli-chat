@@ -87,3 +87,7 @@ Here are a few examples of what a conversation with `cli-chat` might look like:
 ## Configuration
 
 Use `cli-chat-config` to manage key and input history.
+
+## TODO
+
+- [ ] Add autocomplete for control commands.
