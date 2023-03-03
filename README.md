@@ -69,3 +69,5 @@ Here are a few examples of what a conversation with `cli-chat` might look like:
 ![Example 2](./docs/example-2.png)
 
 ![Example 3](./docs/example-3.png)
+
+![Example 4](./docs/example-4.png)
