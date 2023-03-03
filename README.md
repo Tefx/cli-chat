@@ -58,6 +58,12 @@ The following control sequences are available:
 You can use multiple control sequences at once by separating them with commas. For example, `\no-render,load-file` will
 load a file and not render its contents as markdown.
 
+### Todos
+
+1. allow paramneters for control sequences.
+2. \continue[-n] to continue a previous message instead of the last.
+3. \forget, \forget-now to forget context, for switching topic.
+
 ## Example
 
 Here are a couple of examples of what a conversation with `cli-chat` might look like:
