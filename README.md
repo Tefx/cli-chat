@@ -52,7 +52,8 @@ Here are a few things to keep in mind when using `cli-chat`:
 
 ### Control Commands
 
-You can use special control commands to modify `cli-chat`'s behavior. These commands should be placed at the beginning of your question string and should start with a backslash `\\`.
+You can use special control commands to modify `cli-chat`'s behavior. These commands should be placed at the 
+beginning of your question string and should start with a backslash.
 
 The supported control commands are listed below:
 
