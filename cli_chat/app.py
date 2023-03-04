@@ -12,7 +12,7 @@ from typer import Typer
 def read_key(key_path: Path, console: Console):
     if not key_path.exists():
         console.info("No OpenAI key found. Please go to https://beta.openai.com/account/api-keys to get one.")
-        update()
+        update_key()
 
     with key_path.open() as f:
         return f.read().strip()
