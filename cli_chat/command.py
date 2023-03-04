@@ -56,9 +56,16 @@ class CommandManager(CommandManagerBase):
 
     def pre_handler__load_file(self, question):
         file_path = self.console.file_prompt()
-        with open(file_path) as f:
-            question += f.read()
-        return question
+        try:
+            with open(file_path) as f:
+                question += f.read()
+            return question
+        except FileNotFoundError:
+            self.console.error(f"File not found: {file_path}")
+            return None
+        except Exception as e:
+            self.console.error(str(e))
+            return None
 
     def pre_handler__save(self, question, append=False):
         if self.bot.answer_history:
