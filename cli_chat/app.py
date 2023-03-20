@@ -6,7 +6,7 @@ from cli_chat.console import Console
 from cli_chat.command import CommandManager
 
 from appdirs import user_config_dir
-from typer import Typer
+from typer import Typer, Argument, Option
 
 
 def read_key(key_path: Path, console: Console):
@@ -25,11 +25,14 @@ console = Console(history_dir=config_dir / "history")
 
 
 @app.callback(invoke_without_command=True)
-def main():
+def main(
+    model: str = Option("gpt-3.5-turbo", "--model", "-m", help="The model to use.", prompt=True),
+):
     api_key = read_key(config_dir / "key", console)
     Bot(openai_api_key=api_key,
         console=console,
         command_manager=CommandManager(),
+        model=model
         )()
 
 
@@ -45,7 +48,8 @@ def update_key():
 
 
 @config_app.command(help="Remove the OpenAI key.")
-def remove_key():
+def remove_key(
+):
     if (config_dir / "key").exists():
         (config_dir / "key").unlink()
         console.info("Key removed.")

@@ -106,4 +106,4 @@ Use `cli-chat-config` to manage key and input history.
 ## TODO
 
 - [ ] Add autocomplete for control commands.
-- [ ] Add support for prompt shortcuts.
+- [ ] Add support for searching and using prompts from the [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
